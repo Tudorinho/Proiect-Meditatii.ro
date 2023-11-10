@@ -19,7 +19,7 @@
         <!-- Sex -->
         <div>
             <label for="sex" class="block text-sm font-medium text-gray-700">
-                Rol
+                Sex
             </label>
         
             <div class="mt-1">

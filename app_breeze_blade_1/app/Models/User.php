@@ -20,6 +20,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'numar_telefon', // Adaugă noul câmp numar_telefon
+        'rol',
+        'sex',
         'password',
     ];
 
