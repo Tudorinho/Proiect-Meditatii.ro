@@ -16,6 +16,47 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Sex -->
+        <div>
+            <label for="sex" class="block text-sm font-medium text-gray-700">
+                Rol
+            </label>
+        
+            <div class="mt-1">
+                <select id="sex" name="sex" :value="old('sex')" required autocomplete="sex" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="barbat">Barbat</option>
+                    <option value="femeie">Femeie</option>
+                    <option value="altul">Altul</option>
+                </select>
+            </div>
+        </div>
+
+<!-- Numar telefon -->
+<div>
+    <label for="numar_telefon" class="block text-sm font-medium text-gray-700">
+        Număr Telefon
+    </label>
+
+    <div class="mt-1">
+        <input id="numar_telefon" type="text" name="numar_telefon" :value="old('numar_telefon')" required autofocus autocomplete="numar_telefon" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+</div>
+
+<!-- Adaugă după input-ul pentru parolă -->
+<div>
+    <label for="rol" class="block text-sm font-medium text-gray-700">
+        Rol
+    </label>
+
+    <div class="mt-1">
+        <select id="rol" name="rol" :value="old('rol')" required autocomplete="rol" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <option value="student">Student</option>
+            <option value="profesor">Profesor</option>
+        </select>
+    </div>
+</div>
+
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
