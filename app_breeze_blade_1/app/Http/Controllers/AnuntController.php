@@ -48,13 +48,27 @@ class AnuntController extends Controller
         return redirect()->route('anunturi.index')->with('status', 'Anunțul a fost adăugat cu succes!');
     }
 
-    public function index()
-{
-    // Obține toate anunțurile din baza de date
-    $anunturi = Anunt::all();
+//     public function index()
+// {
+//     // Obține toate anunțurile din baza de date
+//     $anunturi = Anunt::all();
 
-    // Returnează pagina cu lista de anunțuri
-    return view('anunturi.index', compact('anunturi'));
-}
+//     // Returnează pagina cu lista de anunțuri
+//     return view('anunturi.index', compact('anunturi'));
+// }
+
+public function index(Request $request)
+    {
+        // Obține toate anunțurile din baza de date
+        $anunturi = Anunt::all();
+
+        // Dacă există o cerere de filtrare după subiect, aplică filtrul
+        if ($request->has('subiect')) {
+            $anunturi = $anunturi->where('subiect', $request->subiect);
+        }
+
+        // Returnează pagina cu lista de anunțuri
+        return view('welcome', compact('anunturi'));
+    }
 
 }
