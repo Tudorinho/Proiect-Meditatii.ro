@@ -81,9 +81,10 @@
             
                 @foreach($anunturi as $anunt)
                     <div class="mb-4">
-                        <h3 class="text-xl" style="color: #ef4444">{{ $anunt->titlu }}</h3>
-                        <p class="text-gray-600 dark:text-gray-400">{{ $anunt->continut }}</p>
-                        <p class="text-gray-600 dark:text-gray-400">{{ $anunt->subiect }}</p>
+                        <h3 class="text-xl" style="color: #ef4444">Titlu: {{ $anunt->titlu }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Continut: {{ $anunt->continut }}</p>
+                        <p class="text-gray-600 dark:text-gray-400">Subiect: {{ $anunt->subiect }}</p>
+                        <p class="text-gray-600 dark:text-gray-400">Profesor: {{ $anunt->user->name }}</p>
                     </div>
                 @endforeach
             </div>

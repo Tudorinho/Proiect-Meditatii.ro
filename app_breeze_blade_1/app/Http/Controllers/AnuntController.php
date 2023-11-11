@@ -59,8 +59,8 @@ class AnuntController extends Controller
 
 public function index(Request $request)
     {
-        // Obține toate anunțurile din baza de date
-        $anunturi = Anunt::all();
+        // Obține toate anunțurile din baza de date împreună cu informațiile despre profesor
+        $anunturi = Anunt::with('user')->get();
 
         // Dacă există o cerere de filtrare după subiect, aplică filtrul
         if ($request->has('subiect')) {
