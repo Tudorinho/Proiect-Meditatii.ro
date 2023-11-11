@@ -58,7 +58,17 @@
                     @endauth
                 </div>
             @endif
+
+            <div class="p-6 text-gray-900 dark:text-gray-100"
+            style="color: aqua">
+                <a href="http://127.0.0.1:8000/chatify">Contacteaza profesorul</a>
+            </div>    
+            <br>
+
             <div class="p-6 text-gray-900 dark:text-gray-100">
+
+                <h1 style="color: cornflowerblue">MEDITATII.ro</h1>
+                <hr> <br> <br>
                 <h2 class="text-2xl font-semibold mb-4" style="color: #ef4444">Anunțuri</h2>
 
                 <form action="{{ url('/') }}" method="GET" class="mb-3">
