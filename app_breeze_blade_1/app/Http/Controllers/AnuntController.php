@@ -44,31 +44,63 @@ class AnuntController extends Controller
         ]);
 
 
-        // Redirecționați utilizatorul către pagina de anunțuri sau unde doriți să-i duceți după adăugarea anunțului.
-        return redirect()->route('anunturi.index')->with('status', 'Anunțul a fost adăugat cu succes!');
+         // Redirecționează utilizatorul către pagina de welcome după adăugarea anunțului.
+         return redirect()->route('/')->with('status', 'Anunțul a fost adăugat cu succes!');
     }
 
-//     public function index()
+//     public function index(Request $request, $subiect = null)
 // {
-//     // Obține toate anunțurile din baza de date
-//     $anunturi = Anunt::all();
+//     // Obține toate anunțurile din baza de date împreună cu informațiile despre profesor
+//     $anunturi = Anunt::with('user');
+
+//     // Dacă există un subiect specificat în URL, aplică filtrul
+//     if ($subiect && $subiect !== 'toate_subiectele') {
+//         $anunturi = $anunturi->where('subiect', $subiect);
+//     }
+
+//     // Obține rezultatele după aplicarea filtrului
+//     $anunturi = $anunturi->get();
+
+//     // Dacă există o cerere de filtrare după subiect, aplică filtrul
+//     if ($request->has('subiect') && $request->subiect !== 'toate_subiectele') {
+//         $anunturi = $anunturi->where('subiect', $request->subiect);
+//     }
 
 //     // Returnează pagina cu lista de anunțuri
-//     return view('anunturi.index', compact('anunturi'));
+//     return view('welcome', compact('anunturi'));
 // }
 
-public function index(Request $request)
-    {
-        // Obține toate anunțurile din baza de date împreună cu informațiile despre profesor
-        $anunturi = Anunt::with('user')->get();
+      // AnuntController.php
 
-        // Dacă există o cerere de filtrare după subiect, aplică filtrul
-        if ($request->has('subiect')) {
-            $anunturi = $anunturi->where('subiect', $request->subiect);
-        }
+public function index(Request $request, $subiect = null)
+{
+    // Obține toate anunțurile din baza de date împreună cu informațiile despre profesor
+    $anunturi = Anunt::with('user');
 
-        // Returnează pagina cu lista de anunțuri
-        return view('welcome', compact('anunturi'));
+    // Dacă există un subiect specificat în URL, aplică filtrul
+    if ($subiect && $subiect !== 'toate_subiectele') {
+        $anunturi = $anunturi->where('subiect', $subiect);
     }
+
+    // Dacă există o cerere de filtrare după subiect, aplică filtrul
+    if ($request->has('subiect') && $request->subiect !== 'toate_subiectele') {
+        $anunturi = $anunturi->where('subiect', $request->subiect);
+    }
+
+    // Obține rezultatele după aplicarea tuturor filtrelor
+    $anunturi = $anunturi->get();
+
+    // Returnează pagina cu lista de anunțuri
+    return view('welcome', compact('anunturi'));
+}
+
+    
+    
+
+
+
+
+
+
 
 }

@@ -61,13 +61,13 @@
             <div class="p-6 text-gray-900 dark:text-gray-100">
                 <h2 class="text-2xl font-semibold mb-4" style="color: #ef4444">Anunțuri</h2>
 
-                <form action="{{ route('anunturi.index') }}" method="GET" class="mb-3">
+                <form action="{{ url('/') }}" method="GET" class="mb-3">
                     @csrf
                     <div class="mb-3">
                         <label for="subiect" class="form-label" style="color: #ef4444">Filtrează după subiect:</label>
                         <br>
                         <select class="form-select" id="subiect" name="subiect">
-                            <option value="">Toate subiectele</option>
+                            <option value="toate_subiectele">Toate subiectele</option>
                             <option value="informatica">Informatica</option>
                             <option value="matematica">Matematica</option>
                             <option value="limba_romana">Limba Romana</option>
