@@ -58,11 +58,14 @@ Route::get('/anunturi/create', [AnuntController::class, 'create'])->name('anuntu
 Route::post('/anunturi/store', [AnuntController::class, 'store'])->name('anunturi.store');
 
 
-Route::get('/adauga-review', [ReviewController::class, 'afiseazaFormularReview'])->name('afiseaza.formular.review');
-Route::post('/adauga-review', [ReviewController::class, 'adaugaReview'])->name('adauga.review');
 
 
-Route::get('/adauga-review-profesor', [ReviewController::class, 'afiseazaFormularReviewProfesor'])->name('afiseaza.formular.review.profesor');
+Route::middleware('auth')->group(function () {
+    Route::get('/adauga-review', [ReviewController::class, 'afiseazaFormularReview'])->name('afiseaza.formular.review');
+    Route::post('/adauga-review', [ReviewController::class, 'adaugaReview'])->name('adauga.review');
+    Route::get('/adauga-review-profesor', [ReviewController::class, 'afiseazaFormularReviewProfesor'])->name('afiseaza.formular.review.profesor');
+});
+
 
 
 
