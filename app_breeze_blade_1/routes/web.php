@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AnuntController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\anunt;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    $anunturi = anunt::all(); // Ajustează numele modelului la cel pe care îl folosești
+    return view('welcome', compact('anunturi'));
 });
 
 Route::get('/dashboard', function () {
@@ -27,5 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/anunturi', [AnuntController::class, 'index'])->name('anunturi.index');
+Route::get('/anunturi/create', [AnuntController::class, 'create'])->name('anunturi.create');
+Route::post('/anunturi', [AnuntController::class, 'store'])->name('anunturi.store');
+
+// Route::get('/', [AnuntController::class, 'index']);
 
 require __DIR__.'/auth.php';
