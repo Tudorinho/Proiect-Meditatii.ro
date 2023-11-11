@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnuntController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 use App\Models\anunt;
 
@@ -55,6 +56,19 @@ Route::middleware('auth')->group(function () {
 Route::get('/anunturi/create', [AnuntController::class, 'create'])->name('anunturi.create');
 // Route::post('/anunturi', [AnuntController::class, 'store'])->name('anunturi.store');
 Route::post('/anunturi/store', [AnuntController::class, 'store'])->name('anunturi.store');
+
+
+Route::get('/adauga-review', [ReviewController::class, 'afiseazaFormularReview'])->name('afiseaza.formular.review');
+Route::post('/adauga-review', [ReviewController::class, 'adaugaReview'])->name('adauga.review');
+
+
+Route::get('/adauga-review-profesor', [ReviewController::class, 'afiseazaFormularReviewProfesor'])->name('afiseaza.formular.review.profesor');
+
+
+
+Route::get('/profesor/{id}', [ReviewController::class, 'afiseazaProfilProfesor'])->name('profesor.show');
+
+
 
 
 // Route::get('/', [AnuntController::class, 'index']);

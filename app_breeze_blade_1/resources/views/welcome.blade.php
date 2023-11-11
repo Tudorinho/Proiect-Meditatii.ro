@@ -63,6 +63,11 @@
             style="color: aqua">
                 <a href="http://127.0.0.1:8000/chatify">Contacteaza profesorul</a>
             </div>    
+            <br><br>
+            <div class="p-6 text-gray-900 dark:text-gray-100"
+            style="color: aqua">
+            <a href="{{ route('afiseaza.formular.review.profesor') }}">Adaugă un review pentru un profesor</a>
+            </div>  
             <br>
 
             <div class="p-6 text-gray-900 dark:text-gray-100">
