@@ -99,7 +99,13 @@
                         <h3 class="text-xl" style="color: #ef4444">Titlu: {{ $anunt->titlu }}</h3>
                         <p class="text-gray-600 dark:text-gray-400">Continut: {{ $anunt->continut }}</p>
                         <p class="text-gray-600 dark:text-gray-400">Subiect: {{ $anunt->subiect }}</p>
-                        <p class="text-gray-600 dark:text-gray-400">Profesor: {{ $anunt->user->name }}</p>
+                        <p class="text-gray-600 dark:text-gray-400" style="color: #3366cc; text-decoration: none;">
+                            Profesor: <a href="{{ route('profesor.show', ['id' => $anunt->user->id]) }}" style="color: #3366cc; text-decoration: none;">
+                                {{ $anunt->user->name }}
+                            </a>
+                        </p>
+                        
+                        
                     </div>
                 @endforeach
             </div>
