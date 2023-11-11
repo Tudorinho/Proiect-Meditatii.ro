@@ -1,0 +1,63 @@
+CERINTE:
+-> Adăugarea anunțurilor de către profesori pentru oferirea de meditații pe un anumit subiect.
+-> Filtrarea anunțurilor după subiect.
+-> Implementarea unei căi de contact a profesorilor pentru cei care caută meditații. 
+-> Salvarea și citirea datelor cu MySQL.
+-> Afișarea unui/unor indicatori de încredere pe anunțurile profesorilor.
+
+
+
+
+
+PLAN
+
+
+1) Autentificarea
+
+In primul rand, vreau sa creez autentificarea, atat pentru elev, cat si pentru profesor. Campurile pe care le vreau ar fi:
+- nume
+- e-mail
+- numar telefon
+- parola
+- sex
+- optiunea de check pentru a alege daca vreau sa ma inregistrez ca un elev sau ca un profesor
+
+
+
+
+
+2) Adăugarea anunțurilor de către profesori pentru oferirea de meditații pe un anumit subiect.
+
+Anuntul poate fi vizualizat de oricine(fie ca este logat sau nu) pe pagina principala(cu ocazia asta, sa schimb pagina de welcome). Optiunea de a crea un anunt apare doar dupa ce utilizatorul este logat ca profesor.
+
+Anuntul sa aiba o sectiune in care profesorul ne va da o scurta descriere despre ce ofera la meditatie.
+
+De asemenea, anunturile profesorului logat sa apara pe dashboard la profesor.
+
+De asemenea, trebuie tinut cont ca mai tarziu va trebui implementata functionalitatea: Implementarea unei căi de contact a profesorilor pentru cei care caută meditații.
+
+
+
+3) Filtrarea anunțurilor după subiect.
+Trebuie schimbata functia index din AnuntController.
+Am sters index.blade.php si acum toate anunturile apar pe pagina principala welcome.blade.php.
+
+
+
+4) Implementarea unei căi de contact a profesorilor pentru cei care caută meditații.(chatbox)
+Am folosit Chatify si Pusher.
+
+
+
+
+5) Afișarea unui/unor indicatori de încredere pe anunțurile profesorilor.
+
+- review
+- nota la examen
+- Numarul total de elevi inregistrati . sa tii minte cei care au contactat profu si sa faci % si sa intre in indicele de trust
+
+
+As vrea sa am o sectiune de review, unde utilizatorul poate da o nota de la 1 la 10 sau de la 1 la 5 stele pentru un profesor. La fiecare profesor sa se calculeze o medie a acestor review-uri.
+De asemenea, sa scrie nota la examen pe care a luat-o dupa meditatiile cu profesorul respectiv, iar pentru fiecare profesor sa se calculeze o medie a acestor note de la examene.
+Un elev poate acorda doar un review pentru un profesor(poate da mai multe review-uri, dar pentru profesori diferiti). Acelasi lucru si pentru nota la examen(doar o nota la examen in dreptul fiecarui profesor, nu pot sa fie 2 sau mai multe note sau review-uri in dreptul aceluiasi profesor).
+Nu in ultimul rand, orice elev care acorda un review pentru un profesor si/sau care da si nota luata in examen dupa meditatiile cu acel profesor, sa fie contorizat. Pentru ca as vrea ca la final sa calculez un indice de trust pentru profesor, care sa fie reprezentat de procentul de elevi inregistrati care au dat un review pentru acel profesor(spre exemplu, daca 80 din 100 de elevi inregistrati pe site au dat elevi pentru profesorul X, atunci profesorul X are un indice de trust de 80%).
